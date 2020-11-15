@@ -1,0 +1,166 @@
+.app {
+  /* background: rgb(208, 65, 61);
+  background: linear-gradient(
+    90deg,
+    rgba(208, 65, 61, 1) 0%,
+    rgba(139, 81, 79, 1) 33%,
+    rgba(54, 97, 111, 1) 67%,
+    rgba(125, 175, 175, 1) 100%
+  ); */
+  background: rgb(208, 65, 61);
+  background: radial-gradient(
+    circle,
+    rgba(208, 65, 61, 0.85) 0%,
+    rgba(1, 17, 36, 1) 100%
+  );
+  margin: 5px;
+  border: 5px solid black;
+}
+
+*::selection {
+  color: #d0413d;
+  background: #7dafaf;
+}
+
+.main {
+  padding: 0 15px;
+}
+
+/*-----------header---------------*/
+@import url("https://fonts.googleapis.com/css2?family=Modak&display=swap");
+.logo-container {
+  margin: auto 0;
+}
+.header img {
+  max-width: 20%;
+  display: block;
+}
+.logo-container h1 {
+  font-family: "Modak", cursive;
+  font-size: 96px;
+}
+
+.logo-container div:first-child {
+  background-color: #cbfefe;
+  border-bottom: 5px solid black;
+  border-right: 2.5px solid black;
+}
+
+.logo-container div:last-child {
+  background-color: #d0413d;
+  border-bottom: 5px solid black;
+  border-left: 2.5px solid black;
+}
+
+/*-----------main----------------*/
+.character-div {
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px 0;
+  height: 100%;
+}
+
+.character-container {
+  margin: 20px 0;
+}
+
+.characters > div:nth-child(even) > .character-div {
+  background-color: #728181;
+  border: 5px solid #557575;
+}
+
+.characters > div:nth-child(odd) > .character-div {
+  background-color: #b96361;
+  border: 5px solid #7c4241;
+}
+
+.book-display span:not(:last-child)::after {
+  content: ", ";
+}
+
+.search-button {
+  border: 2px solid #706d6e;
+  background-color: #a8a2a3;
+  margin: 5px;
+  padding: 5px;
+}
+.search-button:hover {
+  border: 2px solid #706d6e;
+  background-color: #706d6e;
+}
+.search-button svg {
+  color: #15252b;
+}
+
+.input-name {
+  border: 2px solid #706d6e;
+  background-color: #a8a2a3;
+  margin: 5px;
+  padding: 5px;
+}
+
+.select-gender {
+  border: 2px solid #706d6e;
+  background-color: #a8a2a3;
+  margin: 5px;
+  padding: 5px;
+}
+
+.select-page-size {
+  border: 2px solid #706d6e;
+  background-color: #a8a2a3;
+  margin: 5px;
+  padding: 5px;
+}
+
+.w-ft {
+  width: fit-content;
+}
+
+.pagination-container {
+  margin-top: 30px;
+}
+
+.pagination-container button {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid #686465;
+  background-color: #a8a2a3;
+}
+
+.pagination-container button:first-child:hover,
+.pagination-container button:nth-child(2):hover {
+  background-color: #36616f;
+  border: 2px solid #1e353d;
+}
+
+.pagination-container button:last-child:hover,
+.pagination-container button:nth-child(3):hover {
+  border: 2px solid #852926;
+  background-color: #d0413d;
+}
+
+.main-options {
+  margin-bottom: 40px;
+}
+
+.a-link-book {
+  color: black;
+  text-decoration: none;
+}
+
+.a-link-book svg {
+  margin-left: 10px;
+}
+
+.a-link-book:hover {
+  color: #1e353d;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.number-book:hover {
+  font-size: 1.2em;
+  cursor: pointer;
+  color: #852926;
+}

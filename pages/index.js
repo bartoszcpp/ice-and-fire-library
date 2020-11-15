@@ -8,7 +8,11 @@ export default function Home() {
       <header>
         <Header />
       </header>
-      <HomePage />
+      <div className="container">
+        <main className="main">
+          <HomePage />
+        </main>
+      </div>
     </div>
   );
 }
