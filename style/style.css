@@ -13,12 +13,12 @@
   background: #7dafaf;
 }
 
-.main {
-  padding: 0 15px;
+html button:focus {
+  outline: 0;
 }
 
-.main h2 {
-  color: white;
+.main {
+  padding: 0 15px;
 }
 
 /*-----------header---------------*/
@@ -252,6 +252,18 @@
   width: 100px;
   margin: auto;
   padding: 20px 0 100px 0;
+}
+
+.loading-container-small {
+  position: relative;
+  height: 30px;
+  width: 30px;
+  margin: auto 30px;
+}
+
+.loading-container-small .fire {
+  width: 30px;
+  height: 30px;
 }
 
 .fire {

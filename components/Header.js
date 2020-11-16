@@ -1,7 +1,8 @@
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
-const Header = () => {
+const Header = (props) => {
+  const [refresh, setRefresh] = useState(props);
   return (
     <div className="header">
       <div className="logo-container row">
@@ -14,7 +15,7 @@ const Header = () => {
         </div>
       </div>
       <div className="w-100">
-        <Link href="/">
+        <Link onClick={() => setRefresh(true)} href="/">
           <img className="img-fluid m-auto" src="/logo.png"></img>
         </Link>
       </div>
