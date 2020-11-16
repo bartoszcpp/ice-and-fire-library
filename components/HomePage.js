@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Character from "./Character";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faBook } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 const HomePage = () => {
   const [currentPage, setCurrentPage] = useState();
@@ -31,9 +31,6 @@ const HomePage = () => {
         setNext(parseAxiosData.next);
         setLast(parseAxiosData.last);
         setAxiosData(response.data);
-      })
-      .catch(function (error) {
-        console.log(error);
       });
   }, [currentPage, pageSize]);
 
@@ -71,9 +68,6 @@ const HomePage = () => {
             const parseAxiosData = parseData(response.headers.link);
             console.log(parseAxiosData.next);
             showDetails(parseAxiosData.next, response.data);
-          })
-          .catch(function (error) {
-            console.log(error);
           });
       };
       const showDetails = (next, data) => {
@@ -92,8 +86,6 @@ const HomePage = () => {
       getAxios();
     }
   };
-
-  console.log(axiosData);
 
   let characters = null;
   if (!search) {
@@ -130,7 +122,27 @@ const HomePage = () => {
         }
       });
     } else {
-      characters = <div>Loading...</div>;
+      characters = (
+        <div className="loading-container">
+          <div className="fire">
+            <div className="fire-left">
+              <div className="main-fire"></div>
+              <div className="particle-fire"></div>
+            </div>
+            <div className="fire-main">
+              <div className="main-fire"></div>
+              <div className="particle-fire"></div>
+            </div>
+            <div className="fire-right">
+              <div className="main-fire"></div>
+              <div className="particle-fire"></div>
+            </div>
+            <div className="fire-bottom">
+              <div className="main-fire"></div>
+            </div>
+          </div>
+        </div>
+      );
     }
   } else {
     if (axiosDataOneCharacter) {
@@ -144,8 +156,8 @@ const HomePage = () => {
 
   return (
     <>
-      <div className="d-flex main-options">
-        <div className="mr-auto">
+      <div className="row main-options">
+        <div className="col-sm-6">
           <input
             type="text"
             className="input-name"
@@ -157,30 +169,32 @@ const HomePage = () => {
             <FontAwesomeIcon className="socialIcon" icon={faSearch} />
           </button>
         </div>
-        <div className="ml-auto">
-          <select
-            hidden={search}
-            onChange={(e) => setGender(e.target.value)}
-            value={gender}
-            className="select-gender"
-          >
-            <option value="all gender">All gender</option>
-            <option value="female">Female</option>
-            <option value="male">Male</option>
-          </select>
+        <div className="col-sm-6">
+          <div className="ml-auto select-gender-page-size">
+            <select
+              hidden={search}
+              onChange={(e) => setGender(e.target.value)}
+              value={gender}
+              className="select-gender"
+            >
+              <option value="all gender">All gender</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+            </select>
 
-          <select
-            onChange={(e) => setPageSize(e.target.value)}
-            value={pageSize}
-            hidden={search}
-            className="select-page-size"
-          >
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="15">15</option>
-            <option value="20">20</option>
-            <option value="25">25</option>
-          </select>
+            <select
+              onChange={(e) => setPageSize(e.target.value)}
+              value={pageSize}
+              hidden={search}
+              className="select-page-size"
+            >
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="15">15</option>
+              <option value="20">20</option>
+              <option value="25">25</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -197,7 +211,7 @@ const HomePage = () => {
           <button hidden={search} onClick={() => setCurrentPage(previous)}>
             Prev
           </button>
-          {currentPage}
+          <span className="current-page">{currentPage}</span>
           <button hidden={search} onClick={() => setCurrentPage(next)}>
             Next
           </button>

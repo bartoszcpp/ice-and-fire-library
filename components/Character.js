@@ -1,4 +1,5 @@
 import Link from "next/link";
+import React from "react";
 
 const Character = (props) => {
   const { data } = props;
@@ -34,6 +35,7 @@ const Character = (props) => {
       </p>
       <p className="book-display">
         <b>Books: </b>
+        <br />
         {books}
       </p>
       <p>

@@ -1,3 +1,6 @@
+import Link from "next/link";
+import React from "react";
+
 const Header = () => {
   return (
     <div className="header">
@@ -11,7 +14,9 @@ const Header = () => {
         </div>
       </div>
       <div className="w-100">
-        <img className="img-fluid m-auto" src="/logo.png"></img>
+        <Link href="/">
+          <img className="img-fluid m-auto" src="/logo.png"></img>
+        </Link>
       </div>
     </div>
   );
