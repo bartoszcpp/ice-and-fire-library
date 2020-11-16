@@ -58,6 +58,7 @@ const HomePage = () => {
   }
 
   const handleSearch = (word) => {
+    setAxiosDataOneCharacter();
     if (word !== "") {
       setSearchWord(true);
       let page = 0;
@@ -175,7 +176,7 @@ const HomePage = () => {
   return (
     <>
       <div className="row main-options">
-        <div className="col-sm-6 d-flex">
+        <div className="col-sm-6">
           <input
             type="text"
             className="input-name"
@@ -193,8 +194,9 @@ const HomePage = () => {
           <button className="search-button" onClick={() => handleSearch(word)}>
             <FontAwesomeIcon className="socialIcon" icon={faSearch} />
           </button>
+
           {searchWord && (
-            <div className="">
+            <div className="w-ft loading-search-word">
               <div className="loading-container-small">
                 <div className="fire">
                   <div className="fire-left">
@@ -214,7 +216,7 @@ const HomePage = () => {
                   </div>
                 </div>
               </div>
-              <p className="m-auto text-white text-center">Search...</p>
+              <p className=" text-white text-center">Search...</p>
             </div>
           )}
         </div>

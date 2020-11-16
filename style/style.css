@@ -245,6 +245,9 @@ html button:focus {
     background-color: #ff7800;
   }
 }
+.loading-search-word {
+  margin-top: 20px;
+}
 
 .loading-container {
   position: relative;
